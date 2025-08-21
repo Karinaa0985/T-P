@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-size: cover;
+  color: #211f1f;
+}
+
+/* Main Heading Style */
+
+
+/* Flex container for logos + title */
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps text in center */
+  gap: 20px;               /* spacing between images and text */
+  width: 100%;
+}
+
+/* Team Section */
+#team h2 {
+  font-weight: bold;
+  color: #0055a5;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.team-card {
+  border: none;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+}
+
+.team-card img {
+  border: 4px solid #0055a5;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+
+/* Main Heading Style */
+
+
+
+
+/* Center text block */
+/* Main Heading (only the college name) */
+.header-title h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 2.8em;
+  font-weight: bold;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+  margin: 0;
+  z-index: 1;
+}
+
+.header-title h1::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("college.jpg") no-repeat center center;
+  background-size: cover;
+  opacity: 0.85;   /* adjust visibility */
+  border-radius: 10px;
+  z-index: -1;     /* keep it behind the text */
+}
+
+
+/* Common logo styles */
+/* Common logo styles */
+.header-logo {
+  object-fit: cover;
+}
+
+/* Team Carousel */
+#team h2 {
+  font-weight: bold;
+  color: #0055a5;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#team .carousel-item img {
+  border: 4px solid #0055a5;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+#team p {
+  font-size: 1.1em;
+  color: #333;
+}
+
+
+#google_translate_element {
+  margin-top: 10px;
+}
+
+.goog-te-gadget {
+  font-size: 16px;
+  color: #0055a5;
+  font-weight: bold;
+}
+
+
+/* Left image circular */
+.header-logo.circular {
+  width: 160px;   /* bigger than before */
+  height: 160px;
+  border-radius: 50%;
+}
+
+/* Right image rectangular */
+.header-logo.rectangle {
+  width: 180px;   /* more than 7cm approx */
+  height: auto;
+  border-radius: 8px; /* optional soft corners */
+}
+
+
+
+/* Header background */
+header {
+  background: url('college.jpg') no-repeat center center;
+  background-size: cover;
+  color: rgb(10, 10, 10);
+  text-align: center;
+  padding: 2.5em 1.5em;
+  position: relative;
+}
+
+/* Overlay for readability */
+header * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 85, 165, 0.85);
+  color: white;
+  text-align: center;
+  padding: 1.5em;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 1em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #0055a5;
+  font-weight: bold;
+}
+
+/* Section Blocks */
+section {
+  padding: 3em 2em;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 1em;
+  border-radius: 8px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4em 2em;
+  background-color: rgba(0, 119, 204, 0.7);
+  color: white;
+  border-radius: 8px;
+  margin: 1em;
+}
+
+/* Gallery */
+.gallery img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px #aaa;
+}
+
+/* Team */
+.team-member {
+  margin: 1em 0;
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 0.8em 1.5em;
+  background-color: #0055a5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  height: 0;
+}
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Overlay for header */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* dark overlay */
+  z-index: 0;
+}
+
+
