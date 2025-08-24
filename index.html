@@ -22,7 +22,12 @@
     <!-- Center Text -->
     <div class="header-text">
       <h2>Maharshi Karve Stree Shikshan Samstha's</h2>
-      <h1>Cummins College of Engineering <br> For Women, Nagpur</h1>
+      <h1>
+  <span class="highlight-text">
+    Cummins College of Engineering <br> For Women, Nagpur
+  </span>
+</h1>
+
       <h3>Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University</h3>
     </div>
 
@@ -38,15 +43,15 @@
     <a href="#home">Home</a>
     <a href="#about">About Us</a>
     <a href="#team">Team</a>
-    <a href="#higher">Higher Studies</a>
+    <a href="#higher-studies">Higher Studies</a>
     <a href="#placement">Placement</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact Us</a>
-    <a href="#admin">Admin</a>
+    <a href="admin-login.html">Admin</a>
     </nav>
 
   <section id="language">
-  <h2>Select Language</h2>
+  <h2>View in Your Language</h2>
   <div id="google_translate_element"></div>
 </section>
 
@@ -261,16 +266,20 @@
           <img src="worldmap.jpg" alt="Global Map" class="img-fluid rounded">
         </div>
         
-        <!-- Preparation Support -->
-        <div class="tab-pane fade" id="v-pills-prep" role="tabpanel">
-          <h4>📝 Preparation Support</h4>
-          <ul>
-            <li><strong>GATE:</strong> Study guides & previous papers</li>
-            <li><strong>GRE / IELTS / TOEFL:</strong> Resources & tips</li>
-            <li><strong>CAT:</strong> Mock test materials</li>
-          </ul>
-        </div>
-        
+       <div class="tab-pane fade" id="v-pills-prep" role="tabpanel">
+  <h4>📝 Preparation Support</h4>
+  <ul>
+    <li><strong>GATE:</strong> Study guides & previous papers</li>
+    <li><strong>GRE / IELTS / TOEFL:</strong> Resources & tips</li>
+    <li><strong>CAT:</strong> Mock test materials</li>
+  </ul>
+
+  <!-- New Button -->
+  <a href="prep.html" target="_blank" class="btn btn-primary mt-3">
+    📚 Open Study Materials
+  </a>
+</div>
+
         <!-- Alumni Connect -->
         <div class="tab-pane fade" id="v-pills-alumni" role="tabpanel">
           <h4>🎓 Alumni Connect</h4>
@@ -314,11 +323,55 @@
   </p>
 </section>
 
+<section id="gallery" class="gallery container my-5">
+  <h2 class="text-center mb-4">Gallery</h2>
 
-  <section id="gallery" class="gallery">
-    <h2>Gallery</h2>
-    <img src="placement-bg.jpeg" alt="Placement Highlights" />
-  </section>
+  <!-- Bootstrap Carousel -->
+  <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators (dots at bottom) -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="5"></button>
+    </div>
+
+    <!-- Carousel Slides -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/visite4.jpg" class="d-block w-100" alt="Gallery Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/HCL .jpg" class="d-block w-100" alt="Gallery Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/awards.jpg" class="d-block w-100" alt="Gallery Image 3">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/gdse.jpg" class="d-block w-100" alt="Gallery Image 4">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/pink girls.jpg" class="d-block w-100" alt="Gallery Image 5">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/tp.jpg" class="d-block w-100" alt="Gallery Image 6">
+      </div>
+    </div>
+
+    <!-- Controls (Prev / Next) -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+
 
   <section id="contact">
   <h2>Contact Us</h2>
