@@ -47,7 +47,7 @@ tp-higher-studies-portal/
 
 Clone this repository:
 
-git clone https://github.com/your-username/tp-higher-studies-portal.git
+git clone https://github.com/Karinaa0985/tp-higher-studies-portal.git
 
 
 Open index.html in any browser.
