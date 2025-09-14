@@ -1,9 +1,11 @@
 
 
 import React, { useEffect } from "react";
-
+import Scholarships from "./pages/Scholarships";
 import "./App.css";
 import collegeImg from "./assets/college.jpg";
+import { useState } from "react";
+import axios from "axios";
 
 // Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +15,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Prep from "./pages/prep";
 import AdminDashboard from "./pages/admin-dashboard";
 import AdminLogin from "./pages/admin-login";
+
+
 
 
 
@@ -95,6 +99,8 @@ function App() {
           <Route path="/prep" element={<Prep />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/scholarships" element={<Scholarships />} />
+
         </Routes>
       </>
     </Router>
@@ -103,9 +109,31 @@ function App() {
 
 
 function HomePage() {
+
+
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  // handle input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+  await axios.post("http://localhost:5000/submit", formData);
+  alert("✅ Message sent successfully!");
+} catch (err) {
+  console.error("❌ Error details:", err.response ? err.response.data : err.message);
+  alert("❌ Failed: " + (err.response ? err.response.data.error : err.message));
+}
+
+  };
+
   return (
     <>
-    
+  
       {/* ===== Hero Section ===== */}
       <section className="hero" id="home">
         <img
@@ -498,8 +526,8 @@ function HomePage() {
          <Link to="/prep" 
          className="btn btn-primary mt-3"
          >
-  📚 Open Study Materials
-</Link>
+        📚 Open Study Materials
+        </Link>
 
         </div>
 
@@ -529,21 +557,17 @@ function HomePage() {
             Information on funding options, research fellowships, and government 
             scholarships.
           </p>
-          <a
-            href="https://www.scholarships.gov.in/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-success mt-2"
-          >
-            Explore Scholarships
-          </a>
+              <Link to="/scholarships" className="btn btn-success mt-2">
+                  Explore Scholarships
+            </Link>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
-      {/* ===== Placement Section ===== */}
+      
     {/* ===== Placement Section ===== */}
 <section id="placement" className="container my-5">
   <h2 className="text-center mb-4">💼 Placement</h2>
@@ -653,79 +677,70 @@ function HomePage() {
   </div>
 </section>
 
+{/* ===== Contact Section ===== */}
+      <section id="contact" className="container my-5">
+        <h2 className="text-center text-2xl font-bold mb-4">📬 Contact Us</h2>
 
-      {/* ===== Contact Section ===== */}
-     {/* ===== Contact Section ===== */}
-<section id="contact" className="container my-5">
-  <h2 className="text-center text-2xl font-bold mb-4">📬 Contact Us</h2>
+        {/* Contact Form */}
+        <form
+  onSubmit={handleSubmit}   // ✅ Connect handler
+  autoComplete="off"        // 🚫 Disable browser autofill
+  className="contact-form max-w-xl mx-auto bg-white shadow-lg rounded-lg p-4 space-y-3"
+>
+  <input
+    type="text"
+    name="name"
+    value={formData.name}
+    onChange={handleChange}
+    placeholder="Your Name"
+    required
+    className="form-control"
+    autoComplete="off"       // 🚫 Disable suggestions
+  />
 
-  {/* Contact Form */}
-  <form
-    className="contact-form max-w-xl mx-auto bg-white shadow-lg rounded-lg p-4 space-y-3"
-  >
-    <input
-      type="text"
-      name="name"   // ✅ Added
-      placeholder="Your Name"
-      required
-      className="form-control border border-gray-300 rounded-lg p-2 w-full focus:ring-2 focus:ring-blue-400"
-    />
-    <input
-      type="email"
-      name="email"   // ✅ Added
-      placeholder="Your Email"
-      required
-      className="form-control border border-gray-300 rounded-lg p-2 w-full focus:ring-2 focus:ring-blue-400"
-    />
-    <textarea
-      rows="5"
-      name="message"   // ✅ Added
-      placeholder="Your Message"
-      required
-      className="form-control border border-gray-300 rounded-lg p-2 w-full focus:ring-2 focus:ring-blue-400"
-    ></textarea>
-    <button
-      type="submit"
-      className="btn btn-primary w-full py-2 rounded-lg shadow-md hover:bg-blue-600 transition"
-    >
-      🚀 Send Message
-    </button>
-  </form>
+  <input
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="Your Email"
+    required
+    className="form-control"
+    autoComplete="off"       // 🚫 Disable suggestions
+  />
 
-  {/* College Location */}
-  <div className="mt-8 text-center">
-    <h3 className="text-xl font-semibold">📍 Our Location</h3>
-    <p className="text-gray-700 mt-2">
-      Cummins College of Engineering for Women, <br />
-      Mouza - Sukali (Gupchup), Near Hingna T Point, <br />
-      Hingna Road, Nagpur, Maharashtra 441110
-    </p>
-  </div>
+  <textarea
+    rows="5"
+    name="message"
+    value={formData.message}
+    onChange={handleChange}
+    placeholder="Your Message"
+    required
+    className="form-control"
+    autoComplete="off"       // 🚫 Disable suggestions
+  ></textarea>
 
-  {/* Embedded Google Map */}
-  <div className="w-full h-[400px] mt-4 rounded-lg overflow-hidden shadow-md">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.581503418181!2d79.01937961424634!3d21.114934689347317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a8d3b10c4f%3A0x4a07a63b671a8b4a!2sMKSSS%20Cummins%20College%20of%20Engineering%20for%20Women%2C%20Nagpur!5e0!3m2!1sen!2sin!4v1709820000000!5m2!1sen!2sin"
-      width="100%"
-      height="100%"
-      style={{ border: "0" }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="Google Map"
-    ></iframe>
-  </div>
-</section>
+  <button type="submit" className="btn btn-primary w-full py-2">
+    🚀 Send Message
+  </button>
+</form>
 
-{/* ===== Footer ===== */}
-<footer className="bg-gray-900 text-white text-center py-3 mt-6">
-  <p>
-    &copy; 2025 T&amp;P CCOEW | Designed by{" "}
-    <span className="font-semibold text-blue-400">Karina</span>
-  </p>
-</footer>
-  </>
+      </section>
+
+
+
+      {/* ===== Footer ===== */}
+      <footer className="bg-gray-900 text-white text-center py-3 mt-6">
+        <p>
+          &copy; 2025 T&amp;P CCOEW | Designed by{" "}
+          <span className="font-semibold text-blue-400">Karina</span>
+        </p>
+      </footer>
+    </>
   );
 }
+
+
+
 
 export default App;
