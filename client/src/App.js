@@ -5,7 +5,8 @@ import Scholarships from "./pages/Scholarships";
 import "./App.css";
 import collegeImg from "./assets/college.jpg";
 import { useState } from "react";
-import axios from "axios";
+import API from "./api";
+
 
 // Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,11 +16,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Prep from "./pages/prep";
 import AdminDashboard from "./pages/admin-dashboard";
 import AdminLogin from "./pages/admin-login";
-
-
-
-
-
 
 
 function App() {
@@ -119,17 +115,18 @@ function HomePage() {
   };
 
   // handle form submit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-  await axios.post("http://localhost:5000/submit", formData);
-  alert("✅ Message sent successfully!");
-} catch (err) {
-  console.error("❌ Error details:", err.response ? err.response.data : err.message);
-  alert("❌ Failed: " + (err.response ? err.response.data.error : err.message));
-}
+ // handle form submit
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await API.post("/submit", formData);   // ✅ uses API instance
+    alert("✅ Message sent successfully!");
+  } catch (err) {
+    console.error("❌ Error details:", err.response ? err.response.data : err.message);
+    alert("❌ Failed: " + (err.response ? err.response.data.error : err.message));
+  }
+};
 
-  };
 
   return (
     <>

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "./api";  // ✅ use central API
 
 export default function AdminDashboard() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/messages")
+    API.get("/messages")   // ✅ no hardcoded localhost
       .then(res => setMessages(res.data))
       .catch(err => console.error("Error fetching messages:", err));
   }, []);
